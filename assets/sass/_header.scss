@@ -89,6 +89,23 @@
   @include background(primary-color);
   
   @at-root {
+    .nav-items {
+      @extend %flex;
+      @include justify-content(center); 
+      gap: 30px;
+
+      a {
+        padding: 18px 0;
+        @include color(white-color);
+        @include font($size: 10px, $weight: 600, $text: uppercase);
+        letter-spacing: 1px;
+      }
+    }
+
+    .active-nav {
+      a { @include color(secondary-color); }
+    }
+    
     /* hamburger start */
     .hamburger {
       width: 35px;

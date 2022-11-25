@@ -208,7 +208,7 @@ li {
   margin: 0 auto;
 }
 
-.social-items, .header-top .wrapper {
+.nav-items, .social-items, .header-top .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,6 +333,25 @@ li {
 .header-bottom {
   background: #4E9525;
 }
+.nav-items {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 30px;
+}
+.nav-items a {
+  padding: 18px 0;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.active-nav a {
+  color: #FBD342;
+}
+
 /* hamburger start */
 .hamburger {
   width: 35px;
