@@ -1,0 +1,380 @@
+// for colors
+@mixin color($color) {
+  color: map-get($colors, $color);
+}
+
+// for box shadow
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+	box-shadow: $value;
+}
+
+// for wrapper
+@mixin wrapper($className:null, $width:null) {
+  $class: wrapper;
+
+  @if $className {
+    $class : #{$className}-wrapper;
+  }
+
+  .#{$class} {
+    width: $width;
+    margin: $autoMargin;
+  }
+}
+
+// for social icons
+@mixin onlyIcon($data) {
+  @each $key,$value in $data {
+    .#{$key}::before {
+      content: $value;
+    }
+  }
+}
+
+@mixin icon($content:null, $width:null, $height:null, $padding:null, $margin:null, $bd-radius:null, $display:null, $position:null, $zIndex:null, $top:null, $right:null, $bottom:null, $left:null, $color:null, $size:null, $weight:null,$float:null, $textIndent:null) {
+  content: $content;
+  width: $width;
+  height: $height;
+  padding: $padding;
+  margin: $margin;
+  border-radius: $bd-radius;
+  @include display($display);
+  @include position($position:$position, $zIndex:$zIndex, $top:$top, $right:$right, $bottom:$bottom, $left:$left);
+  @include color($color);
+  font-family: 'FontAwesome';
+  font-size: $size;
+  font-weight: $weight;
+  float: $float;
+
+  @if $textIndent {
+    float: left;
+    text-indent: 0;
+  }
+
+}
+
+// for flex
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin inline-flex() {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+@mixin justify-content($value) {
+  @if($value == 'center') {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+
+  @else if($value == 'space-between') {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  }
+
+  @else if($value == 'space-around') {
+    -ms-flex-pack: distribute;
+  }
+
+  @else if($value == 'flex-start') {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  }
+
+  @else if($value == 'flex-end') {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  }
+
+  justify-content: $value;
+}
+
+@mixin align-items($value) {
+  @if($value == 'center') {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+
+  @else if($value == 'baseline') {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+
+  @else if($value == 'stretch') {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+
+  @else if($value == 'flex-start') {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  }
+
+  @else if($value == 'flex-end') {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  }
+
+  align-items: $value;
+}
+
+@mixin flex-common($align: center, $justify: center) {
+  @include display-flex;
+  @include align-items($align);
+  @include justify-content($justify);
+}
+
+@mixin flex-direction($value) {
+  @if($value == 'row') {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+  }
+
+  @else if($value == 'row-reverse') {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+  }
+
+  @else if($value == 'column') {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+  }
+
+  @else if($value == 'column-reverse') {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+  }
+
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flex-wrap($value) {
+  -ms-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+@mixin flex-flow($value1, $value2) {
+  @if($value1 == 'row' and ($value2 == 'wrap' or $value2 == 'nowrap' or $value2 == 'wrap-reverse')) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+  }
+
+  @else if($value1 == 'row-reverse' and ($value2 == 'wrap' or $value2 == 'nowrap' or $value2 == 'wrap-reverse')) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+  }
+
+  @else if($value1 == 'column' and ($value2 == 'wrap' or $value2 == 'nowrap' or $value2 == 'wrap-reverse')) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+  }
+
+  @else if($value1 == 'column-reverse' and ($value2 == 'wrap' or $value2 == 'nowrap' or $value2 == 'wrap-reverse')) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+  }
+
+  -ms-flex-flow: $value1 $value2;
+  flex-flow: $value1 $value2;
+}
+
+@mixin align-content($value) {
+  @if($value == 'center') {
+    -ms-flex-line-pack: $value;
+  } @else if($value == 'space-between') {
+    -ms-flex-line-pack: justify;
+  } @else if($value == 'space-around') {
+    -ms-flex-line-pack: distribute;
+  } @else if($value == 'stretch') {
+    -ms-flex-line-pack: $value;
+  } @else if($value == 'flex-start') {
+    -ms-flex-line-pack: start;
+  } @else if($value == 'flex-end') {
+    -ms-flex-line-pack: end;
+  }
+
+  align-content: $value;
+}
+
+@mixin order($value) {
+  -webkit-box-ordinal-group: $value + 1;
+  -ms-flex-order: $value;
+  order: $value;
+}
+
+@mixin flex-grow($value) {
+  -webkit-box-flex: $value;
+  -ms-flex-positive: $value;
+  flex-grow: $value;
+}
+
+@mixin flex-shrink($value) {
+  -ms-flex-negative: $value;
+  flex-shrink: $value;
+}
+
+@mixin flex-basis($value) {
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+
+@mixin flex($grow, $shrink, $basis) {
+  -webkit-box-flex: $grow;
+  -ms-flex: $grow $shrink $basis;
+  flex: $grow $shrink $basis;
+}
+
+@mixin align-self($value) {
+  @if($value == 'center') {
+    -ms-flex-item-align: $value;
+    -ms-grid-row-align: $value;
+  }
+
+  @else if($value == 'flex-start') {
+    -ms-flex-item-align: start;
+  }
+
+  @else if($value == 'flex-end') {
+    -ms-flex-item-align: end;
+  }
+
+  align-self: $value;
+}
+
+// for image
+@mixin img($objectFit) {
+  img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: $objectFit;
+    object-fit: $objectFit;
+    -o-object-position: center;
+    object-position: center;
+  }
+}
+
+// for any content width or height
+@mixin content-size($width:null, $height:null) {
+  @if $width {
+    width: $width;
+  }
+
+  @if $height {
+    height: $height;
+  }
+}
+
+// if use display property except flex
+@mixin display($display:null, $float:null, $overflow:null, $zIndex:null) {
+  @if $display {
+    display: $display;
+  }
+
+  @if $float {
+    float: $float;
+  }
+
+  @if $zIndex {
+    z-index: $zIndex;
+  }
+
+  @if $overflow {
+    overflow: $overflow;
+  }
+}
+
+// position style mixin
+@mixin position($width:null, $height:null, $bd-radius:null, $position:null, $zIndex:null, $top:null, $right:null, $bottom:null, $left:null) {
+  width: $width;
+  height: $height;
+  border-radius: $bd-radius;
+  position: $position;
+  z-index: $zIndex;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// font mixin
+@mixin font($family:null, $size:null, $weight:null, $text:null, $textAlign:null) {
+
+  @if $family {
+    font-family: $family;
+  }
+
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $textAlign {
+    text-align: $textAlign;
+  }
+
+  @if $text {
+    text-transform: $text;
+  }
+}
+
+// transform mixin
+@mixin transform($value:null) {
+  -webkit-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+// transition mixin
+@mixin transition($property:null, $delay:null, $func:null) {
+  -webkit-transition: $property $delay $func;
+  -o-transition: $property $delay $func;
+  transition: $property $delay $func;
+}
+
+// background mixin
+@mixin background($backgroundColor:null, $url:null, $backgroundValue:null) {
+
+  @if $url {
+    background: map-get($colors, $backgroundColor) url($url) $backgroundValue;
+    background-size: cover;
+  }
+
+  @else {
+    background: map-get($colors, $backgroundColor);
+  }
+}
+
+// media query mixin
+@mixin breakpoint($min:null, $max:null) {
+  @if min and max {
+    @media screen and (min-device-width: $min) and (max-device-width: $max) {
+      @content;
+    }
+  }
+}
+
+@mixin maxResponsive($device) {
+  $device_width: map-get($map: $devices, $key: $device);
+
+  @media only screen and (max-width: $device_width) {
+    @content;
+  }
+}
+
+@mixin minResponsive($device) {
+  $device_width: map-get($map: $devices, $key: $device);
+
+  @media only screen and (min-width: $device_width) {
+    @content;
+  }
+}
