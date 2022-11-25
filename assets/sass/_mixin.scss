@@ -9,6 +9,12 @@
 	box-shadow: $value;
 }
 
+// for box sizing
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  box-sizing: $value;
+}
+
 // for wrapper
 @mixin wrapper($className:null, $width:null) {
   $class: wrapper;

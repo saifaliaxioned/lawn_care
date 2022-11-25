@@ -1,11 +1,9 @@
-$colors : (white-color:#fff, black-color:#000, btn-color: #33d4d6, grey-text: #8e8e94 ,blue-color: #0a8cff, section-color: #F6FBFF, light-blue: #DDF0FF, hover-blue: #095da6, icon-color: #8e8e944d);
+$colors : (white-color:#fff, black-color:#000, primary-color: #4E9525, secondary-color: #FBD342, light-green: #65A341, blog-green: #4F9526, btn-green: #396C1B, grey-text: #A29A97, content-grey: #F2F2F2, background-grey: #F8F9FA);
 
 $devices:(large-desktop:"1280px", desktop:"1024px", tablet:"995px", ipad:"768px", largePhone:"640px", mediumPhone:"480px", smallPhone:"320px");
 
-$headerIcon:("shop":"\f290","search":"\f002");
+$headerIcon:(facebook:"\f39e", ball:"\f434", twitter:"\f099", instagram:"\f16d");
 
-$fontAwesome : (facebook:"\f39e", google:"\f0d5", twitter:"\f099", instagram:"\e055");
-
-$testimonialIcon: ("prev":"\f100","next":"\f101");
+$footerIcon : (twitter:"\f099", facebook:"\f39e", instagram:"\e055");
 
 $autoMargin : 0 auto;

@@ -1,0 +1,21 @@
+%flex {
+  @include display-flex();
+}
+
+%btn-color {
+  @include background(primary-color);
+  @include color(white-color);
+}
+
+%transition {
+  @include transition(all 0.3s ease);
+}
+
+%transform-center {
+  @include transform(translate(-50%, -50%));
+}
+
+%icon {
+  @include icon($position: absolute, $top: 50%, $left: 50%);
+  @extend %transform-center;
+}

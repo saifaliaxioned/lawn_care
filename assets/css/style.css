@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+/* Align radios and text inputs with their label */
+input[type=radio] {
+  vertical-align: text-bottom;
+}
+
+/* Hand cursor on clickable input elements */
+label,
+input[type=button],
+input[type=submit],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup {
+  top: -0.7em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 1.2. Clear Fix
+   ========================== */
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+/*for all*/
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 58%;
+  margin: 0 auto;
+}
+
+.social-items, .header-top .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-form .input-control span {
+  background: #4E9525;
+  color: #fff;
+}
+
+.bar::before,
+.bar::after, .bar {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.bar, .header-form .input-control span::before, .social-items a::before {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.header-form .input-control span::before, .social-items a::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "FontAwesome";
+}
+
+/* header start */
+.header-top {
+  padding: 33px 0;
+}
+.header-top .wrapper {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.social-items {
+  gap: 3px;
+}
+.social-items a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  text-indent: -9999px;
+  background: #F2F2F2;
+  color: #000;
+}
+.social-items a::before {
+  font-size: 10px;
+  text-indent: 0;
+}
+
+.facebook::before {
+  content: "\f39e";
+}
+
+.ball::before {
+  content: "\f434";
+}
+
+.twitter::before {
+  content: "\f099";
+}
+
+.instagram::before {
+  content: "\f16d";
+}
+
+.logo {
+  margin-left: 6%;
+}
+.logo a {
+  color: #000;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+.logo span {
+  color: #4E9525;
+}
+
+.header-form {
+  width: 27%;
+  position: relative;
+}
+.header-form .input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  background: #F2F2F2;
+  font-size: 10px;
+}
+.header-form .input-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.header-form .input-control span {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+.header-form .input-control span::before {
+  content: "\f002";
+  font-size: 11px;
+}
+.header-form .input-control input {
+  text-indent: -9999px;
+}
+.header-form input {
+  border: none;
+  outline: none;
+}
+
+.header-bottom {
+  background: #4E9525;
+}
+/* hamburger start */
+.hamburger {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  position: relative;
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 50%;
+  height: 2px;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  background: #fff;
+  text-indent: -99999px;
+}
+
+.bar::before,
+.bar::after {
+  content: "";
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  left: 0;
+  background-color: inherit;
+}
+
+.bar::before {
+  top: -6px;
+}
+
+.bar::after {
+  top: 6px;
+}
+
+.hamburger:hover .bar {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hamburger:hover .bar::before {
+  -webkit-transform: translateY(6px) rotate(0);
+  -ms-transform: translateY(6px) rotate(0);
+  transform: translateY(6px) rotate(0);
+}
+
+.hamburger:hover .bar::after {
+  -webkit-transform: translateY(-6px) rotate(-90deg);
+  -ms-transform: translateY(-6px) rotate(-90deg);
+  transform: translateY(-6px) rotate(-90deg);
+}
+
+/* hamburger end */
+
+/* header end */
+
+/*# sourceMappingURL=style.css.map */
